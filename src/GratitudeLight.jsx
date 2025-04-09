@@ -4,7 +4,7 @@ export default function GratitudeLight() { const [entries, setEntries] = useStat
 
 const handleSubmit = () => { if (!input.trim()) return; const newEntry = { text: input.trim(), date: new Date().toLocaleString(), }; setEntries([newEntry, ...entries]); setInput(''); };
 
-const generateSummary = async () => { setLoading(true); setSummary(null); const allText = entries.map(e => - ${e.text}).join('\n');
+const allText = entries.map(e => `- ${e.text}`).join('\\n');
 
 if (!allText) {
   setSummary("Add some gratitude first and I'll help reflect on it.");
